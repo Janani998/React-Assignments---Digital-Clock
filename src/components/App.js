@@ -13,31 +13,29 @@ class App extends Component {
       })
     };
   }
+
   componentDidMount() {
-    this.timer = setInterval(() => this.tick(), 1000);
+    this.intervalID = setInterval(() => {
+      this.setState({
+        time: new Date().toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: true
+        })
+      });
+    }, 1000);
   }
-
-  componentWillUnMount() {
-    clearInterval(this.timer);
-  }
-
-  tick() {
-    this.setState({
-      time: new Date().toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
-        hour12: true
-      })
-    });
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
   render() {
     return (
-      <>
+      <div className="App">
         <div className="Clock">
-          <h3 id="time">{this.state.time} </h3>
+          <h3 id="time">{this.state.time}</h3>
         </div>
-      </>
+      </div>
     );
   }
 }
