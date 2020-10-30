@@ -2,8 +2,8 @@ import React, { Component, useState } from "react";
 import "../styles/App.css";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       time: new Date().toLocaleTimeString("en-US", {
         hour: "numeric",
