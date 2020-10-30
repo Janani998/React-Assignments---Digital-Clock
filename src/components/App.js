@@ -13,8 +13,7 @@ class App extends Component {
   }
 
   componentWillUnMount() {
-    this.timer && clearInterval(this.timer);
-    this.timer = false;
+    clearInterval(this.timer);
   }
 
   tick() {
