@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import "../styles/App.css";
+import "./styles.css";
 
 class App extends Component {
   constructor() {
@@ -13,7 +13,8 @@ class App extends Component {
   }
 
   componentWillUnMount() {
-    clearInterval(this.timer);
+    this.timer && clearInterval(this.timer);
+    this.timer = false;
   }
 
   tick() {
