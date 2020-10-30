@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.intervalID = setInterval(() => {
+    this.timerID = setInterval(() => {
       this.setState({
         time: new Date().toLocaleTimeString("en-US", {
           hour: "numeric",
@@ -27,11 +27,11 @@ class App extends Component {
     }, 1000);
   }
   componentWillUnmount() {
-    clearInterval(this.intervalID);
+    clearInterval(this.timerID);
   }
   render() {
     return (
-      <div className="App">
+      <div>
         <div className="Clock">
           <h3 id="time">{this.state.time}</h3>
         </div>
