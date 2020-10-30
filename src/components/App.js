@@ -5,7 +5,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      time: new Date().toLocaleTimeString()
+      time: new Date().toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: true
+      })
     };
   }
   componentDidMount() {
@@ -17,7 +22,14 @@ class App extends Component {
   }
 
   tick() {
-    this.setState({ time: new Date().toLocaleTimeString() });
+    this.setState({
+      time: new Date().toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: true
+      })
+    });
   }
 
   render() {
